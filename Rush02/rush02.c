@@ -55,20 +55,21 @@ int	check_arguments(int argc, char *argv[])
 {
 	int	i;
 
-	if (argc < 2 || argv[1][0] == '-')
+	if (argc < 2 || argv[argc - 1][0] == '-')
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	if (argc == 2 && ft_strlen(argv[1]) >= 40)
+	if (ft_strlen(argv[argc - 1]) >= 40)
 	{
 		write(1, "Dict Error\n", 12);
 		return (0);
 	}
 	i = 0;
-	while (argv[1][i])
+	
+	while (argv[argc - 1][i])
 	{
-		if (is_alpha(argv[1][i]))
+		if (is_alpha(argv[argc - 1][i]))
 		{
 			write(1, "Error\n", 6);
 			return (0);
