@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helper_functions.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/18 18:48:04 by csilva-r          #+#    #+#             */
+/*   Updated: 2024/02/18 18:51:01 by csilva-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-#include <limits.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include "functions.h"
 
-int 	ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
 	int	sign;
@@ -19,7 +30,7 @@ int 	ft_atoi(char *str)
 	{
 		if (str[i] == '-')
 			sign = sign * (-1);
-	i++;
+		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -39,7 +50,7 @@ void	ft_putstr(char *str)
 	write(1, str, i);
 }
 
-int	    ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -49,36 +60,36 @@ int	    ft_strlen(char *str)
 	return (i);
 }
 
-char    *ft_strslice(char *str, int start, int end)
+char	*ft_strslice(char *str, int start, int end)
 {
-    int      i;
-	char	*new;    
+	int		i;
+	char	*new;
 
-    new = (char *)malloc(end - start + 2);
-    i = 0;
-    while (i <= end - start)
-    {
-        new[i] = str[start + i];
-        i++;
-    }
-    new[i] = '\0';
-    return (new);
+	new = (char *)malloc(end - start + 2);
+	i = 0;
+	while (i <= end - start)
+	{
+		new[i] = str[start + i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
 }
 
 char	*ft_strcat(char *zeroes, char *src)
 {
-	int i;
-	int j;
-    char *new;
+	int		i;
+	int		j;
+	char	*new;
 
 	i = 0;
 	j = 0;
-    new = (char *)malloc(ft_strlen(zeroes) + ft_strlen(src));
+	new = (char *)malloc(ft_strlen(zeroes) + ft_strlen(src));
 	while (zeroes[j] != '\0')
-    {
-        new[j] = zeroes[j];
+	{
+		new[j] = zeroes[j];
 		j++;
-    }
+	}
 	while (src[i] != '\0')
 	{
 		new[j] = src[i];
