@@ -6,7 +6,7 @@
 /*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:51:26 by csilva-r          #+#    #+#             */
-/*   Updated: 2024/02/18 19:02:21 by csilva-r         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:24:33 by csilva-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,8 @@ int	main(int argc, char *argv[])
 	}
 	read_dictionary(fd, tens, smalls, big_boys);
 	close(fd);
+	if (!check_zero(number, smalls))
+		return (0);
 	print_number(pad_number(number), smalls, tens, big_boys);
 	cleanup(smalls, tens, big_boys);
 	return (0);

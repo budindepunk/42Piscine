@@ -6,7 +6,7 @@
 /*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 19:29:04 by csilva-r          #+#    #+#             */
-/*   Updated: 2024/02/18 19:30:35 by csilva-r         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:23:28 by csilva-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,5 @@ int		read_one_line(int fd, char *line);
 void	extract_value(char *line, int line_length, int start, char *value);
 
 int		parse_line(char *line, int line_length, char *key, char *value);
+
+int		check_zero(char *number, char **smalls);

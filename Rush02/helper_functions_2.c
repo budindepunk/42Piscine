@@ -6,7 +6,7 @@
 /*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 19:08:40 by csilva-r          #+#    #+#             */
-/*   Updated: 2024/02/18 19:08:51 by csilva-r         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:24:54 by csilva-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	handle_pairs(char *key, char *value, char **smalls, char **tens)
 }
 
 int	handle_block(int atoi_num, char **smalls, char **tens)
+
 {
 	if (atoi_num == 0)
 		return (1);
@@ -50,5 +51,21 @@ int	handle_block(int atoi_num, char **smalls, char **tens)
 		write(1, "-", 1);
 		ft_putstr(smalls[atoi_num % 10]);
 	}
+	return (0);
+}
+
+int	check_zero(char *number, char **smalls)
+{
+	int	j;
+
+	j = 0;
+	while (j < ft_strlen(number))
+	{
+		if (number[j] != '0')
+			return (1);
+		j++;
+	}
+	ft_putstr(smalls[0]);
+	write(1, "\n", 1);
 	return (0);
 }
