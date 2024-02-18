@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 14:54:26 by csilva-r          #+#    #+#             */
-/*   Updated: 2024/02/14 17:01:06 by csilva-r         ###   ########.fr       */
+/*   Created: 2024/02/09 17:02:20 by csilva-r          #+#    #+#             */
+/*   Updated: 2024/02/09 17:14:10 by csilva-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int	i;
+#include <unistd.h>
 
-	if (nb < 0 || nb == 0 || nb == 1)
-		return (0);
-	else if (nb == 2)
-		return (1);
-	i = 2;
-	while (i < nb && i < 46341)
+void	ft_putnbr(int nb)
+{
+	int	digit;
+
+	if (nb == -2147483648)
 	{
-		if (nb % i == 0)
-			return (0);
-		i++;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	return (1);
-}
-
-int	ft_find_next_prime(int nb)
-{
-	if (nb <= 2)
-		return (2);
-	while (!ft_is_prime(nb))
-		nb++;
-	return (nb);
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = nb * -1;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		digit = nb % 10 + '0';
+		write(1, &digit, 1);
+	}
+	else
+	{
+		digit = nb + '0';
+		write(1, &digit, 1);
+	}
 }

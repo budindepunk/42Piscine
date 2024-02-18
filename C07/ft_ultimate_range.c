@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 14:54:26 by csilva-r          #+#    #+#             */
-/*   Updated: 2024/02/14 17:01:06 by csilva-r         ###   ########.fr       */
+/*   Created: 2024/02/15 16:28:05 by csilva-r          #+#    #+#             */
+/*   Updated: 2024/02/15 16:33:34 by csilva-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
+#include <stdlib.h>
+
+int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;
+	int	*temp;
+	int	top;
 
-	if (nb < 0 || nb == 0 || nb == 1)
-		return (0);
-	else if (nb == 2)
-		return (1);
-	i = 2;
-	while (i < nb && i < 46341)
+	if (min >= max)
 	{
-		if (nb % i == 0)
-			return (0);
-		i++;
+		*range = NULL;
+		return (0);
 	}
-	return (1);
-}
-
-int	ft_find_next_prime(int nb)
-{
-	if (nb <= 2)
-		return (2);
-	while (!ft_is_prime(nb))
-		nb++;
-	return (nb);
+	temp = (int *)malloc(sizeof(*temp) * (max - min));
+	if (temp == NULL)
+		return (-1);
+	else
+	{
+		i = 0;
+		top = max - min;
+		while (i < top)
+		{
+			temp[i] = min + i;
+			i++;
+		}
+		*range = temp;
+		return (i);
+	}
 }

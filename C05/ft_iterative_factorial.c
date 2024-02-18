@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/14 12:56:09 by csilva-r          #+#    #+#             */
+/*   Updated: 2024/02/14 13:12:21 by csilva-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_iterative_factorial(int nb)
 {
 	int	i;
@@ -7,6 +19,8 @@ int	ft_iterative_factorial(int nb)
 	i = 1;
 	if (nb == 0)
 		return (1);
+	else if (nb < 0)
+		return (0);
 	else
 	{
 		while (i <= nb)
@@ -16,13 +30,4 @@ int	ft_iterative_factorial(int nb)
 		}
 	}
 	return (result);
-}
-
-#include <stdio.h>
-int	main(void)
-{
-	printf("%d\n", ft_iterative_factorial(0));
-	printf("%d\n", ft_iterative_factorial(5));
-	printf("%d\n", ft_iterative_factorial(4));
-	return (0);
 }

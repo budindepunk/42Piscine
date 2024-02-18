@@ -1,22 +1,25 @@
-#include <stdio.h>
-#include <limits.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/14 13:17:45 by csilva-r          #+#    #+#             */
+/*   Updated: 2024/02/14 16:53:04 by csilva-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
 	int	i;
 
 	i = 1;
-	while (i * i <= nb)
+	while (i * i <= nb && i < 46341)
 	{
 		if (i * i == nb)
 			return (i);
 		i++;
 	}
-	return (0);
-}
-
-int	main(void)
-{
-	printf("%d\n", ft_sqrt(2147483647));
 	return (0);
 }

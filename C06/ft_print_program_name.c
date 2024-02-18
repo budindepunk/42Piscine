@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/14 15:35:30 by csilva-r          #+#    #+#             */
+/*   Updated: 2024/02/14 15:45:40 by csilva-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_putstr(char *str)
@@ -14,7 +26,10 @@ void	ft_putstr(char *str)
 
 int	main(int argc, char *argv[])
 {
-	ft_putstr(argv[0]);
-	write(1, "\n", 1);
+	if (argc > 0)
+	{
+		ft_putstr(argv[0]);
+		write(1, "\n", 1);
+	}
 	return (0);
 }

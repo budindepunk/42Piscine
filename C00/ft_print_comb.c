@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/14 14:54:26 by csilva-r          #+#    #+#             */
-/*   Updated: 2024/02/14 17:01:06 by csilva-r         ###   ########.fr       */
+/*   Created: 2024/02/01 12:57:46 by csilva-r          #+#    #+#             */
+/*   Updated: 2024/02/01 13:02:12 by csilva-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int	i;
+#include <unistd.h>
 
-	if (nb < 0 || nb == 0 || nb == 1)
-		return (0);
-	else if (nb == 2)
-		return (1);
-	i = 2;
-	while (i < nb && i < 46341)
+void	ft_print_comb(void)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = '0';
+	while (a <= '7')
 	{
-		if (nb % i == 0)
-			return (0);
-		i++;
+		b = a + 1;
+		while (b <= '8')
+		{
+			c = b + 1;
+			while (c <= '9')
+			{
+				write(1, &a, 1);
+				write(1, &b, 1);
+				write(1, &c, 1);
+				if (a < '7' || b < '8' || c < '9')
+					write(1, ", ", 2);
+				c++;
+			}
+			b++;
+		}
+		a++;
 	}
-	return (1);
-}
-
-int	ft_find_next_prime(int nb)
-{
-	if (nb <= 2)
-		return (2);
-	while (!ft_is_prime(nb))
-		nb++;
-	return (nb);
 }
