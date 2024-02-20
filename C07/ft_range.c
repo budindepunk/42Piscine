@@ -28,4 +28,8 @@ int	*ft_range(int min, int max)
 		min++;
 	}
 	return (range);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0c98231918943828b65803cb09f1ea8abef54ec5
