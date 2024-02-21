@@ -6,7 +6,7 @@
 /*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:36:07 by csilva-r          #+#    #+#             */
-/*   Updated: 2024/02/15 15:37:51 by csilva-r         ###   ########.fr       */
+/*   Updated: 2024/02/20 14:56:31 by csilva-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	*ft_range(int min, int max)
 
 	if (min >= max)
 		return (NULL);
-	range = (int *)malloc(max - min);
+	range = (int *)malloc(sizeof(*range) * (max - min));
 	i = 0;
 	while (min < max)
 	{
@@ -28,8 +28,4 @@ int	*ft_range(int min, int max)
 		min++;
 	}
 	return (range);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0c98231918943828b65803cb09f1ea8abef54ec5

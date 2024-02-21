@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-r <csilva-r@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 11:50:16 by csilva-r          #+#    #+#             */
-/*   Updated: 2024/02/15 12:00:34 by csilva-r         ###   ########.fr       */
+/*   Created: 2024/02/21 15:43:39 by csilva-r          #+#    #+#             */
+/*   Updated: 2024/02/21 17:24:32 by csilva-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,34 @@ char	*ft_strdup(char *src)
 	}
 	new[i] = '\0';
 	return (new);
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
+{
+	t_stock_str		*par;
+	int				i;
+
+	par = malloc(sizeof(t_stock_str) * (ac + 1));
+	if (par == NULL)
+		return (NULL);
+	i = 0;
+	while (i < ac)
+	{
+		par[i].str = av[i];
+		par[i].str = ft_strdup(av[i]);
+		par[i].size = ft_strlen(av[i]);
+		i++;
+	}
+	par[i].str = 0;
+	return (par);
 }
